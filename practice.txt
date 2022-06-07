@@ -1,0 +1,52 @@
+import java.io.*;
+public class practice
+{
+    public static void main(String args[]) throws Exception
+    {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the File-->");
+        String file_name=br.readLine();
+        
+        String path="C:\\Users\\user\\Desktop\\"+file_name;
+        
+        FileOutputStream fout=new FileOutputStream(path);
+        System.out.println("Enter the String-->");
+        String s1=br.readLine();
+        
+        FileInputStream fin=new FileInputStream(path);
+        int i;
+        String str="";
+        int upper=0,lower=0,digit=0,sp=0,space=0;
+        while((i=fin.read())!=-1)
+        {
+            char b1=(char)i;
+            if(Character.isUpperCase(b1))
+            {
+                upper++;
+            }
+            else
+                if(Character.isLowerCase(b1))
+                {
+                    lower++;
+                }
+                else if(Character.isSpace(b1))
+                {
+                    space++;
+                }
+                else if(Character.isDigit(b1))
+                {
+                    digit++;
+                }
+            else
+                {
+                    sp++;
+                }
+        }
+        System.out.println("Upper cases are-->"+upper);
+        System.out.println("Lower cases are-->"+lower);
+        System.out.println("Digits are-->"+digit);
+        System.out.println("Spaces are-->"+space);
+        System.out.println("Special Characters are-->"+sp);
+        fin.close(); 
+    }
+}
