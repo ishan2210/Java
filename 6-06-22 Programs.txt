@@ -1,0 +1,95 @@
+File Consonents and Vowels
+
+package FileProgramming;
+import java.io.*;
+
+public class file_vowel_consonent {
+    public static void main(String args[]) throws Exception
+    {
+        FileOutputStream fout=new FileOutputStream("C:\\Users\\user\\Desktop\\22.txt");
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter the String-->");
+        String name=br.readLine();
+        byte b[]=name.getBytes();
+        fout.write(b);
+        fout.close();
+        
+        FileInputStream fin=new FileInputStream("C:\\Users\\user\\Desktop\\22.txt");
+        int i,count=0,count1=0;
+        String str="";
+        char c;
+        String s1="",s2="";
+        while((i=fin.read())!=-1)
+        {
+            char ch=(char)i;
+            if(ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+            {
+                count++;
+                s1=s1+ch;
+            }
+            else
+            {
+                count1++;
+                s2=s2+ch;
+            }
+        }
+        System.out.println("Vowels-->"+s1);
+        System.out.println("Consonents-->"+s2);
+        System.out.println("Total no of vowels-->"+count);
+        System.out.println("Total no of Consonents-->"+count1);
+        
+        FileOutputStream fout1=new FileOutputStream("C:\\Users\\user\\Desktop\\10.txt");
+        byte b1[]=s1.getBytes();
+        fout1.write(b1);
+        fout.close();
+        
+        FileOutputStream fout2=new FileOutputStream("C:\\Users\\user\\Desktop\\10.txt");
+        byte b2[]=s2.getBytes();
+        fout2.write(b2);
+        fout2.close();
+        
+        
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+File BufferedOutputStream
+
+package FileProgramming;
+import java.io.*;
+public class file_bufferedoutputstream {
+   public static void main(String args[]) throws Exception
+   {
+       FileOutputStream fout=new FileOutputStream("C:\\Users\\user\\Desktop\\kansara.txt");
+       BufferedOutputStream bout=new BufferedOutputStream(fout);
+       BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+       String name=br.readLine();
+       byte b[]=name.getBytes();
+       bout.write(b);
+       bout.close();
+       fout.close();
+
+   }
+}
+--------------------------------------------------------------------------------------------------------------------------------------
+File BufferedInputStream
+
+package FileProgramming;
+import java.io.*;
+
+public class file_bufferedinputstream {
+    public static void main(String args[]) throws Exception
+    {
+        FileInputStream fin=new FileInputStream("C:\\Users\\user\\Desktop\\kansara.txt");
+        BufferedInputStream bin=new BufferedInputStream(fin);
+        int i;
+        String str="";
+        while((i=bin.read())!=-1)
+        {
+            str=str+(char)i;
+        }
+        System.out.println(str);
+        bin.close();
+        fin.close();
+        
+    }
+}
